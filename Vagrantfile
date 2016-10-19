@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.hostname = "orely.local"
+    config.vm.hostname = "oreilly.local"
 
     required_plugins = %w(vagrant-vbguest vagrant-hostmanager vagrant-docker-compose)
 
