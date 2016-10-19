@@ -4,9 +4,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.hostname = "orely.local"
+    config.vm.hostname = "oreilly.local"
 
-    required_plugins = %w(vagrant-vbguest vagrant-hostmanager vagrant-docker-compose)
+    required_plugins = %w(vagrant-vbguest vagrant-docker-compose)
 
     plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
     if not plugins_to_install.empty?
@@ -16,14 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         else
             abort "Installation of one or more plugins has failed. Aborting."
         end
-    end
-
-    if Vagrant.has_plugin?("vagrant-hostmanager")
-        config.hostmanager.enabled = true
-        config.hostmanager.manage_host = true
-        config.hostmanager.manage_guest = true
-        config.hostmanager.ignore_private_ip = false
-
     end
 
     config.vm.box = "ubuntu/trusty64"
